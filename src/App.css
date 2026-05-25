@@ -1,0 +1,49 @@
+/* Importamos una fuente limpia y moderna (Inter) para un aspecto más corporativo */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f4f6f9; /* Un gris muy claro y limpio para el fondo general */
+  color: #333333;
+}
+
+/* Tu estructura de App Shell adaptada */
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f9fa;
+}
+
+/* El contenedor principal que crece para empujar al footer al fondo */
+.app-content {
+  flex: 1; /* Esto obliga al contenido a ocupar todo el espacio disponible */
+  width: min(1200px, calc(100% - 32px));
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra los formularios verticalmente si están solos */
+}
+
+/* Contenedor especial para cuando estemos en las pantallas de Login/Registro */
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 70vh;
+}
+
+/* Ajuste responsivo para pantallas móviles pequeñas (como la de los celulares) */
+@media (max-width: 640px) {
+  .app-content {
+    width: min(100%, calc(100% - 16px));
+    margin: 20px auto;
+  }
+}
