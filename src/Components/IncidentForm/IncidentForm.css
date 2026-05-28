@@ -1,0 +1,54 @@
+.iform-container { display: flex; justify-content: center; padding: 20px 16px; }
+.iform-card {
+  background: white; border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(0,107,60,0.1);
+  padding: 36px 40px; width: 100%; max-width: 620px;
+  border-top: 5px solid var(--verde);
+}
+.iform-title { font-size: 22px; color: var(--texto); font-weight: 700; margin-bottom: 24px; }
+.iform       { display: flex; flex-direction: column; gap: 20px; }
+.iform-group { display: flex; flex-direction: column; gap: 6px; }
+.iform-group label { font-size: 13px; font-weight: 600; color: var(--texto); }
+.iform-group input[type="text"],
+.iform-group select,
+.iform-group textarea {
+  padding: 11px 14px; border: 1.5px solid var(--gris-borde);
+  border-radius: 8px; font-size: 15px; outline: none;
+  background: var(--gris); transition: border-color 0.2s, box-shadow 0.2s;
+}
+.iform-group input:focus,
+.iform-group select:focus,
+.iform-group textarea:focus {
+  border-color: var(--verde); background: white;
+  box-shadow: 0 0 0 3px rgba(0,107,60,0.1);
+}
+.iform-group textarea { resize: vertical; }
+.btn-geo {
+  width: fit-content; padding: 9px 18px;
+  background: var(--verde-claro); color: var(--verde);
+  border: 1.5px solid #a8d5bb; border-radius: 8px;
+  cursor: pointer; font-size: 14px; font-weight: 600;
+  transition: background 0.2s;
+}
+.btn-geo:hover    { background: #d0eddf; }
+.btn-geo:disabled { opacity: 0.6; cursor: not-allowed; }
+.geo-ok  { color: var(--verde); font-size: 13px; margin-top: 5px; font-weight: 600; }
+.geo-err { color: var(--rojo);  font-size: 13px; margin-top: 5px; }
+.file-input  { font-size: 14px; }
+.foto-preview { margin-top: 10px; width: 100%; max-height: 240px; object-fit: cover; border-radius: 10px; border: 2px solid var(--gris-borde); }
+.iform-actions { display: flex; gap: 12px; margin-top: 6px; }
+.btn-cancel {
+  flex: 1; padding: 12px; background: var(--gris);
+  color: var(--texto-suave); border: 1.5px solid var(--gris-borde);
+  border-radius: 8px; cursor: pointer; font-size: 15px; transition: background 0.2s;
+}
+.btn-cancel:hover { background: #e2e8e5; }
+.btn-submit {
+  flex: 2; padding: 12px; background: var(--verde);
+  color: white; border: none; border-radius: 8px;
+  font-size: 15px; font-weight: 700; cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+.btn-submit:hover    { background: var(--verde-oscuro); transform: translateY(-1px); }
+.btn-submit:disabled { background: #aaa; cursor: not-allowed; transform: none; }
+@media (max-width: 600px) { .iform-card { padding: 24px 16px; } }

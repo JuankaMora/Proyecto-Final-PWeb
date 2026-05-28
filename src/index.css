@@ -1,0 +1,32 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --verde:        #006B3C;
+  --verde-oscuro: #004D2A;
+  --verde-claro:  #E8F5EE;
+  --rojo:         #C8392B;
+  --rojo-claro:   #FDECEA;
+  --gris:         #F4F6F5;
+  --gris-borde:   #D9E0DC;
+  --texto:        #1A2E25;
+  --texto-suave:  #5A7066;
+  --blanco:       #FFFFFF;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--gris);
+  color: var(--texto);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+a { color: var(--verde); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+button { font-family: inherit; }
+
+input, select, textarea {
+  font-family: inherit;
+  font-size: 15px;
+}
