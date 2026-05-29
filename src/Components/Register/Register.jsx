@@ -22,23 +22,19 @@ function Register() {
     const { data, error } = await supabase.auth.signUp({ email, password });
     if (error) { setMessage(error.message); setIsLoading(false); return; }
 
-    await new Promise(resolve => setTimeout(resolve, 1500));
-
     const esAdmin = claveAdmin === CLAVE_ADMIN;
 
-    await supabase
-      .from('profiles')
-      .upsert({
-        id: data.user.id,
-        nombre,
-        role: esAdmin ? 'admin' : 'user'
-      });
+    await supabase.rpc('registrar_perfil', {
+      user_id:   data.user.id,
+      user_nombre: nombre,
+      user_role: esAdmin ? 'admin' : 'user'
+    });
 
     setIsLoading(false);
     setSuccess(true);
     setMessage(esAdmin
-      ? 'Cuenta creada como administrador. Ya puedes iniciar sesión.'
-      : 'Cuenta creada exitosamente. Ya puedes iniciar sesión.'
+      ? 'Cuenta creada como administrador. Confirma tu correo para iniciar sesión.'
+      : 'Cuenta creada. Revisa tu correo y confirma tu registro para iniciar sesión.'
     );
   };
 
@@ -48,7 +44,6 @@ function Register() {
         <div className="register-header">
           <div className="register-logos">
             <img src="/udla.png" alt="Logo UDLA" className="register-img-logo" />
-            {/* <div className="register-escudo">UA</div> */}
           </div>
           <h1 className="register-title">Crear cuenta</h1>
           <p className="register-subtitle">Regístrate con tu correo institucional</p>
